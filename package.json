@@ -1,0 +1,42 @@
+{
+	"name": "repo",
+	"private": true,
+	"scripts": {
+		"build": "turbo run build",
+		"dev": "turbo run dev",
+		"start": "turbo run start",
+		"preview": "turbo run preview",
+		"check-types": "turbo run check-types",
+		"check": "biome check .",
+		"check:unsafe": "biome check --write --unsafe .",
+		"check:write": "biome check --write .",
+		"db:check": "turbo run db:check",
+		"db:generate": "turbo run db:generate",
+		"db:migrate": "turbo run db:migrate",
+		"db:migrate:drop": "turbo run db:migrate:drop",
+		"db:pull": "turbo run db:pull",
+		"db:push": "turbo run db:push",
+		"db:studio": "turbo run db:studio",
+		"db:up": "turbo run db:up",
+		"clean": "bun run rm -rf node_modules && turbo run clean",
+		"test": "vitest",
+		"coverage": "vitest run --coverage"
+	},
+	"dependencies": {
+		"vitest": "^3.1.1",
+		"vite-plugin-env-compatible": "^2.0.1",
+		"@repo/di": "workspace:^",
+		"@repo/entities": "workspace:^"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.9.4",
+		"turbo": "^2.4.4",
+		"typescript": "5.8.2",
+		"@vitest/coverage-istanbul": "^3.1.1"
+	},
+	"engines": {
+		"node": ">=18"
+	},
+	"packageManager": "bun@1.2.2",
+	"workspaces": ["apps/*", "packages/*", "tooling/*"]
+}

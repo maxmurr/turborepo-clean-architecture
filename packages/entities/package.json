@@ -1,0 +1,25 @@
+{
+	"name": "@repo/entities",
+	"version": "0.0.1",
+	"private": true,
+	"sideEffects": false,
+	"type": "module",
+	"main": "./src/index.ts",
+	"types": "./src/index.ts",
+	"exports": {
+		"./models": "./src/models/index.ts",
+		"./errors": "./src/errors/index.ts"
+	},
+	"scripts": {
+		"build": "tsc -p tsconfig.build.json",
+		"clean": "bun run rm -rf dist *.tsbuildinfo",
+		"dev": "tsc -w -p tsconfig.build.json",
+		"typecheck": "tsc --noEmit"
+	},
+	"dependencies": {
+		"zod": "^3.24.2"
+	},
+	"devDependencies": {
+		"@repo/tsconfig": "workspace:^"
+	}
+}

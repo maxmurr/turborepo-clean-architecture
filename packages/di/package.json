@@ -1,0 +1,28 @@
+{
+	"name": "@repo/di",
+	"version": "0.0.1",
+	"private": true,
+	"sideEffects": false,
+	"type": "module",
+	"exports": {
+		"./container": {
+			"types": "./dist/container.d.ts",
+			"default": "./dist/container.js"
+		}
+	},
+	"scripts": {
+		"build": "tsc -p tsconfig.build.json",
+		"clean": "bun run rm -rf dist *.tsbuildinfo",
+		"dev": "tsc -w -p tsconfig.build.json",
+		"typecheck": "tsc --noEmit"
+	},
+	"dependencies": {
+		"@evyweb/ioctopus": "^1.2.0",
+		"@repo/application": "workspace:^",
+		"@repo/infrastructure": "workspace:^",
+		"@repo/interface-adapters": "workspace:^"
+	},
+	"devDependencies": {
+		"@repo/tsconfig": "workspace:^"
+	}
+}

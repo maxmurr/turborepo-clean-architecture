@@ -1,0 +1,40 @@
+{
+	"name": "@repo/db",
+	"version": "0.0.1",
+	"private": true,
+	"sideEffects": false,
+	"type": "module",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"default": "./dist/index.js"
+		},
+		"./schema": {
+			"types": "./dist/schema/index.d.ts",
+			"default": "./dist/schema/index.js"
+		}
+	},
+	"scripts": {
+		"build": "tsc -p tsconfig.build.json",
+		"clean": "bun run rm -rf dist *.tsbuildinfo",
+		"db:check": "drizzle-kit check",
+		"db:generate": "drizzle-kit generate",
+		"db:migrate": "drizzle-kit migrate",
+		"db:migrate:drop": "drizzle-kit drop",
+		"db:pull": "drizzle-kit introspect",
+		"db:push": "drizzle-kit push",
+		"db:studio": "drizzle-kit studio",
+		"db:up": "drizzle-kit up",
+		"dev": "tsc -w -p tsconfig.build.json",
+		"typecheck": "tsc --noEmit"
+	},
+	"dependencies": {
+		"@repo/env": "workspace:^",
+		"drizzle-orm": "^0.41.0",
+		"zod": "^3.24.2"
+	},
+	"devDependencies": {
+		"@repo/tsconfig": "workspace:^",
+		"drizzle-kit": "^0.30.5"
+	}
+}

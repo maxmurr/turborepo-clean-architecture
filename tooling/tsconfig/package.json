@@ -1,0 +1,13 @@
+{
+	"name": "@repo/tsconfig",
+	"version": "0.0.1",
+	"private": true,
+	"type": "module",
+	"files": [
+		"./base.json",
+		"./next.json",
+		"./react.json",
+		"./build.json",
+		"./dom.json"
+	]
+}

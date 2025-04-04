@@ -1,0 +1,8 @@
+
+[0m[2m[35m$[0m [2m[1mdrizzle-kit push[0m
+[90mNo config path provided, using default 'drizzle.config.ts'[39m
+[90mReading config file '/Users/maxmurr/Developer/github/hexagonal-monorepo/packages/db/drizzle.config.ts'[39m
+[⣷] Pulling schema from database...
+[2K[1A[2K[G[[32m✓[39m] Pulling schema from database...
+
+[[34mi[39m] No changes detected

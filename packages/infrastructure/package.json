@@ -1,0 +1,26 @@
+{
+	"name": "@repo/infrastructure",
+	"version": "0.0.1",
+	"private": true,
+	"sideEffects": false,
+	"type": "module",
+	"exports": {
+		"./repositories": {
+			"types": "./dist/repositories/index.d.ts",
+			"default": "./dist/repositories/index.js"
+		}
+	},
+	"scripts": {
+		"build": "tsc -p tsconfig.build.json",
+		"clean": "bun run rm -rf dist *.tsbuildinfo",
+		"dev": "tsc -w -p tsconfig.build.json",
+		"typecheck": "tsc --noEmit"
+	},
+	"dependencies": {
+		"@repo/entities": "workspace:^",
+		"@repo/application": "workspace:^"
+	},
+	"devDependencies": {
+		"@repo/tsconfig": "workspace:^"
+	}
+}

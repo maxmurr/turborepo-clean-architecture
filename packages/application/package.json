@@ -1,0 +1,33 @@
+{
+	"name": "@repo/application",
+	"version": "0.0.1",
+	"private": true,
+	"sideEffects": false,
+	"type": "module",
+	"exports": {
+		"./interfaces/use-cases/posts": {
+			"types": "./dist/interfaces/use-cases/posts/index.d.ts",
+			"default": "./dist/interfaces/use-cases/posts/index.js"
+		},
+		"./interfaces/repositories": {
+			"types": "./dist/interfaces/repositories/index.d.ts",
+			"default": "./dist/interfaces/repositories/index.js"
+		},
+		"./use-cases/posts": {
+			"types": "./dist/use-cases/posts/index.d.ts",
+			"default": "./dist/use-cases/posts/index.js"
+		}
+	},
+	"scripts": {
+		"build": "tsc -p tsconfig.build.json",
+		"clean": "bun run rm -rf dist *.tsbuildinfo",
+		"dev": "tsc -w -p tsconfig.build.json",
+		"typecheck": "tsc --noEmit"
+	},
+	"dependencies": {
+		"@repo/entities": "workspace:^"
+	},
+	"devDependencies": {
+		"@repo/tsconfig": "workspace:^"
+	}
+}

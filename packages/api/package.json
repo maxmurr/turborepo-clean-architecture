@@ -1,0 +1,30 @@
+{
+	"name": "@repo/api",
+	"version": "0.0.1",
+	"private": true,
+	"sideEffects": false,
+	"type": "module",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"default": "./dist/index.js"
+		}
+	},
+	"scripts": {
+		"build": "tsc -p tsconfig.build.json",
+		"clean": "bun run rm -rf dist *.tsbuildinfo",
+		"dev": "tsc -w -p tsconfig.build.json",
+		"typecheck": "tsc --noEmit"
+	},
+	"dependencies": {
+		"zod": "^3.24.2",
+		"superjson": "^2.2.1",
+		"@trpc/server": "^11.0.0",
+		"@repo/interface-adapters": "workspace:^",
+		"@repo/entities": "workspace:^",
+		"@repo/di": "workspace:^"
+	},
+	"devDependencies": {
+		"@repo/tsconfig": "workspace:^"
+	}
+}

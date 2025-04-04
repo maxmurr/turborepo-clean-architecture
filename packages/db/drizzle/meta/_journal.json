@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1742752510000,
+      "tag": "0000_breezy_mojo",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1743690393923,
+      "tag": "0001_daffy_sunspot",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1743753198262,
+      "tag": "0002_wandering_storm",
+      "breakpoints": true
+    }
+  ]
+}

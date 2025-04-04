@@ -1,0 +1,26 @@
+{
+	"name": "@repo/interface-adapters",
+	"version": "0.0.1",
+	"private": true,
+	"sideEffects": false,
+	"type": "module",
+	"exports": {
+		"./controllers/posts": {
+			"types": "./dist/controllers/posts/index.d.ts",
+			"default": "./dist/controllers/posts/index.js"
+		}
+	},
+	"scripts": {
+		"build": "tsc -p tsconfig.build.json",
+		"clean": "bun run rm -rf dist *.tsbuildinfo",
+		"dev": "tsc -w -p tsconfig.build.json",
+		"typecheck": "tsc --noEmit"
+	},
+	"dependencies": {
+		"@repo/application": "workspace:^",
+		"@repo/entities": "workspace:^"
+	},
+	"devDependencies": {
+		"@repo/tsconfig": "workspace:^"
+	}
+}

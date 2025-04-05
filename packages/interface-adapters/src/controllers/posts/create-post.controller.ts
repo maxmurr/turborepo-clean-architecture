@@ -1,4 +1,4 @@
-import type { CreatePostUseCase } from "@repo/application/interfaces/use-cases/posts";
+import type { TCreatePostUseCase } from "@repo/application/use-cases/posts";
 import { InputParseError } from "@repo/entities/errors";
 import {
 	type CreatePost,
@@ -16,13 +16,13 @@ function presenter(post: Post) {
 export type TCreatePostController = ReturnType<typeof createPostController>;
 
 export const createPostController =
-	(createPostUseCase: CreatePostUseCase) => async (input: CreatePost) => {
+	(createPostUseCase: TCreatePostUseCase) => async (input: CreatePost) => {
 		const { data, error: inputParseError } = createPostSchema.safeParse(input);
 
 		if (inputParseError) {
 			throw new InputParseError(inputParseError.message);
 		}
 
-		const post = await createPostUseCase.execute(data);
+		const post = await createPostUseCase(data);
 		return presenter(post);
 	};

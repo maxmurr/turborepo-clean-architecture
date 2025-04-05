@@ -4,7 +4,11 @@ import { createHydrationHelpers } from "@trpc/react-query/rsc";
 import { headers } from "next/headers";
 import { cache } from "react";
 
-import { type AppRouter, createCaller, createTRPCContext } from "@repo/api";
+import {
+	type AppRouter,
+	createCaller,
+	createTRPCContext,
+} from "../../../../server/src/root";
 import { createQueryClient } from "../query-client";
 
 /**

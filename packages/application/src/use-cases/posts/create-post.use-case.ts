@@ -1,13 +1,17 @@
-import type { PostRepository } from "@/interfaces/repositories/post.interface";
-import type { CreatePostUseCase } from "@/interfaces/use-cases/posts/create-post.interface";
+import type { IPostRepository } from "@/repositories/post.interface";
+import { InputParseError } from "@repo/entities/errors";
 import type { CreatePost, Post } from "@repo/entities/models";
 
-export class CreatePostUseCaseImpl implements CreatePostUseCase {
-	constructor(private postRepository: PostRepository) {}
+export type TCreatePostUseCase = ReturnType<typeof createPostUseCase>;
 
-	async execute(post: CreatePost): Promise<Post> {
-		const newPost = await this.postRepository.create(post);
+export const createPostUseCase =
+	(postRepository: IPostRepository) =>
+	async (post: CreatePost): Promise<Post> => {
+		if (!post.name) {
+			throw new InputParseError("Name is required");
+		}
+
+		const newPost = await postRepository.create(post);
 
 		return newPost;
-	}
-}
+	};

@@ -1,4 +1,4 @@
-import type { GetLatestPostUseCase } from "@repo/application/interfaces/use-cases/posts";
+import type { TGetLatestPostUseCase } from "@repo/application/use-cases/posts";
 import { NotFoundError } from "@repo/entities/errors";
 import type { Post } from "@repo/entities/models";
 
@@ -14,8 +14,8 @@ export type TGetLatestPostController = ReturnType<
 >;
 
 export const getLatestPostController =
-	(getLatestPostUseCase: GetLatestPostUseCase) => async () => {
-		const post = await getLatestPostUseCase.execute();
+	(getLatestPostUseCase: TGetLatestPostUseCase) => async () => {
+		const post = await getLatestPostUseCase();
 
 		if (!post) {
 			throw new NotFoundError("No post found");

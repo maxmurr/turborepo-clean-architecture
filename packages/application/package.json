@@ -5,13 +5,9 @@
 	"sideEffects": false,
 	"type": "module",
 	"exports": {
-		"./interfaces/use-cases/posts": {
-			"types": "./dist/interfaces/use-cases/posts/index.d.ts",
-			"default": "./dist/interfaces/use-cases/posts/index.js"
-		},
-		"./interfaces/repositories": {
-			"types": "./dist/interfaces/repositories/index.d.ts",
-			"default": "./dist/interfaces/repositories/index.js"
+		"./repositories": {
+			"types": "./dist/repositories/index.d.ts",
+			"default": "./dist/repositories/index.js"
 		},
 		"./use-cases/posts": {
 			"types": "./dist/use-cases/posts/index.d.ts",

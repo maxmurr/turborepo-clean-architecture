@@ -1,7 +1,7 @@
-import type { PostRepository } from "@repo/application/interfaces/repositories";
+import type { IPostRepository } from "@repo/application/repositories";
 import type { Post } from "@repo/entities/models";
 
-export class MockPostRepositoryImpl implements PostRepository {
+export class MockPostRepositoryImpl implements IPostRepository {
 	private _posts: Post[];
 
 	constructor() {

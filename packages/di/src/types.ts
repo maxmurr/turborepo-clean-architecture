@@ -1,8 +1,8 @@
-import type { PostRepository } from "@repo/application/interfaces/repositories";
+import type { IPostRepository } from "@repo/application/repositories";
 import type {
-	CreatePostUseCase,
-	GetLatestPostUseCase,
-} from "@repo/application/interfaces/use-cases/posts";
+	TCreatePostUseCase,
+	TGetLatestPostUseCase,
+} from "@repo/application/use-cases/posts";
 import type {
 	TCreatePostController,
 	TGetLatestPostController,
@@ -24,16 +24,16 @@ export const DI_SYMBOLS = {
 } as const;
 
 export interface DI_RETURN_TYPES {
-	// Services
+		// Services
 
-	// Repositories
-	PostRepository: PostRepository;
+		// Repositories
+		PostRepository: IPostRepository;
 
-	// Use Cases
-	CreatePostUseCase: CreatePostUseCase;
-	GetLatestPostUseCase: GetLatestPostUseCase;
+		// Use Cases
+		CreatePostUseCase: TCreatePostUseCase;
+		GetLatestPostUseCase: TGetLatestPostUseCase;
 
-	// Controllers
-	CreatePostController: TCreatePostController;
-	GetLatestPostController: TGetLatestPostController;
-}
+		// Controllers
+		CreatePostController: TCreatePostController;
+		GetLatestPostController: TGetLatestPostController;
+	}

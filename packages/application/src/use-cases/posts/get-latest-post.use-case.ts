@@ -1,11 +1,16 @@
-import type { PostRepository } from "@/interfaces/repositories/post.interface";
-import type { GetLatestPostUseCase } from "@/interfaces/use-cases/posts/get-latest-post.interface";
+import type { IPostRepository } from "@/repositories/post.interface";
+import { NotFoundError } from "@repo/entities/errors";
 import type { Post } from "@repo/entities/models";
 
-export class GetLatestPostUseCaseImpl implements GetLatestPostUseCase {
-	constructor(private postRepository: PostRepository) {}
+export type TGetLatestPostUseCase = ReturnType<typeof getLatestPostUseCase>;
 
-	async execute(): Promise<Post | null> {
-		return this.postRepository.findLatest();
-	}
-}
+export const getLatestPostUseCase =
+	(postRepository: IPostRepository) => async (): Promise<Post | null> => {
+		const post = await postRepository.findLatest();
+
+		if (!post) {
+			throw new NotFoundError("No post found");
+		}
+
+		return post;
+	};

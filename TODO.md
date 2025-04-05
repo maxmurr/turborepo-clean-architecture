@@ -8,8 +8,8 @@
 - [/] Set up unit test
 - [ ] Set up intregation test
 - [ ] Set up e2e test
-- [/] Set up CI/CD
-  - [/] Github action
+- [ ] Set up CI/CD
+  - [ ] Github action
 
 ---
 

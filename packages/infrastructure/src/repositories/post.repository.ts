@@ -2,10 +2,10 @@ import { db } from "@repo/db";
 import { posts } from "@repo/db/schema";
 import { desc } from "drizzle-orm";
 
-import type { PostRepository } from "@repo/application/interfaces/repositories";
+import type { IPostRepository } from "@repo/application/repositories";
 import type { CreatePost, Post } from "@repo/entities/models";
 
-export class PostRepositoryImpl implements PostRepository {
+export class PostRepositoryImpl implements IPostRepository {
 	async create(post: CreatePost): Promise<Post> {
 		const [newPost] = await db.insert(posts).values(post).returning().execute();
 

@@ -8,8 +8,8 @@ import {
 } from "@repo/infrastructure/repositories";
 
 import {
-	CreatePostUseCaseImpl,
-	GetLatestPostUseCaseImpl,
+	createPostUseCase,
+	getLatestPostUseCase,
 } from "@repo/application/use-cases/posts";
 import {
 	createPostController,
@@ -27,11 +27,11 @@ export function createPostsModule() {
 
 	postsModule
 		.bind(DI_SYMBOLS.CreatePostUseCase)
-		.toClass(CreatePostUseCaseImpl, [DI_SYMBOLS.PostRepository]);
+		.toHigherOrderFunction(createPostUseCase, [DI_SYMBOLS.PostRepository]);
 
 	postsModule
 		.bind(DI_SYMBOLS.GetLatestPostUseCase)
-		.toClass(GetLatestPostUseCaseImpl, [DI_SYMBOLS.PostRepository]);
+		.toHigherOrderFunction(getLatestPostUseCase, [DI_SYMBOLS.PostRepository]);
 
 	postsModule
 		.bind(DI_SYMBOLS.CreatePostController)

@@ -19,8 +19,7 @@
 		"db:studio": "turbo run db:studio",
 		"db:up": "turbo run db:up",
 		"clean": "bun run rm -rf node_modules && turbo run clean",
-		"test": "vitest",
-		"coverage": "vitest run --coverage"
+		"test": "vitest"
 	},
 	"dependencies": {
 		"vitest": "^3.1.1",
